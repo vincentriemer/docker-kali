@@ -7,8 +7,7 @@ script:
 - cd stage-1 && ./build.sh && cd ..
 - cd stage-2 && ./build.sh && cd ..
 before_deploy:
-- ls -la
-- zip -r docker-kali.zip ./out
+- zip -r docker-kali.zip stage-2/out
 deploy:
   skip_cleanup: true
   provider: releases

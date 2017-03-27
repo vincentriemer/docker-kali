@@ -46,8 +46,8 @@ RUN set -ex \
   && chmod +x /usr/local/bin/yarn
 # =============== END: Install Node ===============
 
-RUN apt-fast update && \
-    apt-fast -qq install kali-linux-top10 && \
+RUN apt-get -qq update && \
+    apt-get -qq install kali-linux-top10 && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app

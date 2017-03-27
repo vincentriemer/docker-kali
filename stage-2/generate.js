@@ -25,8 +25,8 @@ fi
 
 const dockerFileFactory = toolName =>
   `FROM vincentriemer/docker-kali:base
-RUN apt-fast update && \\
-  apt-fast -qq install ${toolName} && \\
+RUN apt-get -qq update && \\
+  apt-get -qq install ${toolName} && \\
   rm -rf /var/lib/apt/lists/*
 `;
 
@@ -59,7 +59,7 @@ docker run -it --rm \\
       // Generate executables for each command in the package
       const commands = config[packageName];
       for (const command of commands) {
-        const filePath = `../out/${command}`;
+        const filePath = `./out/${command}`;
         await fs.outputFile(
           filePath,
           commandExecutableFactory(packageName, command),

@@ -14,7 +14,7 @@ RUN echo 'Dpkg::Use-Pty "0";' > /etc/apt/apt.conf.d/00usepty && \
     rm -rf /var/lib/apt/lists/* && \
     echo "deb http://repo.kali.org/kali kali-rolling main contrib non-free" > /etc/apt/sources.list && \
     echo "deb-src http://repo.kali.org/kali kali-rolling main contrib non-free" >> /etc/apt/sources.list && \
-    apt-fast -qq update && \
-    apt-fast -qq upgrade && \
-    apt-fast -qq dist-upgrade && \
+    apt-get -qq update && \
+    apt-get -qq upgrade && \
+    apt-get -qq dist-upgrade && \
     rm -rf /var/lib/apt/lists/*
