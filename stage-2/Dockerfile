@@ -47,7 +47,7 @@ RUN set -ex \
 # =============== END: Install Node ===============
 
 RUN apt-fast update && \
-    apt-fast -y install kali-linux-top10 && \
+    apt-fast -qq install kali-linux-top10 && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app

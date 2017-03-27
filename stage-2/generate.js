@@ -14,13 +14,19 @@ const buildScriptFactory = toolName =>
 SDIR="$( cd "$( dirname "\$\{BASH_SOURCE[0]\}" )" && pwd )"
 
 docker build -t vincentriemer/docker-kali:${toolName} $SDIR
-docker push vincentriemer/docker-kali:${toolName}
+
+if [ -z \$\{DOCKER_USER+x\} ]; then
+  echo "DOCKER_USER not in env, skipping push..."
+else
+  docker login -u $DOCKER_USER -p $DOCKER_PASS
+  docker push vincentriemer/docker-kali:${toolName}
+fi
 `;
 
 const dockerFileFactory = toolName =>
   `FROM vincentriemer/docker-kali:base
 RUN apt-fast update && \\
-  apt-fast -y install ${toolName} && \\
+  apt-fast -qq install ${toolName} && \\
   rm -rf /var/lib/apt/lists/*
 `;
 

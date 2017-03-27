@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-docker login -u $DOCKER_USER -p $DOCKER_PASS
 
 SDIR="$( cd "$( dirname "\$\{BASH_SOURCE[0]\}" )" && pwd )"
 CONFIG_BUILDER_TAG="vincentriemer/kali:config-builder"
