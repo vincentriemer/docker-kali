@@ -3,7 +3,9 @@ set -e
 
 SDIR="$( cd "$( dirname "\$\{BASH_SOURCE[0]\}" )" && pwd )"
 
-for D in $SDIR/images/*/
+BUILD="build.sh"
+
+for DIR in $SDIR/images/*/
 do
-  bash $Dbuild.sh
+  bash $DIR$BUILD
 done
