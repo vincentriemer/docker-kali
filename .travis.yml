@@ -1,0 +1,13 @@
+sudo: required
+skip_cleanup: true
+
+services:
+- docker
+
+script:
+- cd stage-0 && ./build.sh
+- cd stage-1 && ./build.sh
+- cd stage-2 && ./build.sh
+
+after_script:
+- cd out && zip kali-binaries.zip
