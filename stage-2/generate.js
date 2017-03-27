@@ -19,7 +19,8 @@ docker push vincentriemer/docker-kali:${toolName}
 
 const dockerFileFactory = toolName =>
   `FROM vincentriemer/docker-kali:base
-RUN apt-fast -y install ${toolName} && \\
+RUN apt-fast update && \\
+  apt-fast -y install ${toolName} && \\
   rm -rf /var/lib/apt/lists/*
 `;
 
