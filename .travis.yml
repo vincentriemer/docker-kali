@@ -1,5 +1,5 @@
 sudo: required
-skip_cleanup: true
+language: ruby
 
 services:
 - docker
